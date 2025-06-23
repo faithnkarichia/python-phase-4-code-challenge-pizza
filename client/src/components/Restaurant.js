@@ -25,6 +25,7 @@ function Home() {
   }, [id]);
 
   function handleAddPizza(newRestaurantPizza) {
+    console.log('restaurant--------------', restaurant);
     setRestaurant({
       data: {
         ...restaurant,
@@ -48,9 +49,10 @@ function Home() {
         <p>{restaurant.address}</p>
       </div>
       <div className="card">
-        <h2>Pizza Menu</h2>
-        {restaurant.restaurant_pizzas.map((restaurant_pizza) => (
+        <h2>Pizza Menu</h2>{console.log('.----------------', restaurant)}
+        {restaurant && restaurant.restaurant_pizzas && restaurant.restaurant_pizzas.map((restaurant_pizza) => (
           <div key={restaurant_pizza.pizza.id}>
+            {console.log('restaurant_pizza', restaurant_pizza)}
             <h3>{restaurant_pizza.pizza.name}</h3>
             <p>
               <em>{restaurant_pizza.pizza.ingredients}</em>
